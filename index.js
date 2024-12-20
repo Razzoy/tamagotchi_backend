@@ -39,7 +39,7 @@ setInterval(() => {
     } else {
       isHappy = false;
     }
-    hp = hp - 0.1;
+    hp = hp - 0.2;
     io.sockets.emit('status', { happyness: isHappy, angryness: isAngry, health: hp });
   }
 
