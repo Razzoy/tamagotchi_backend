@@ -39,7 +39,7 @@ setInterval(() => {
     } else {
       isHappy = false;
     }
-    hp = hp - 1;
+    hp = hp - 0.1;
     io.sockets.emit('status', { happyness: isHappy, angryness: isAngry, health: hp });
   }
 
@@ -52,7 +52,7 @@ setInterval(() => {
     io.sockets.emit('status', { happyness: isHappy, angryness: isAngry, health: hp });
   }
 
-}, 10000);
+}, 1000);
 
 // A user connects to the server (opens a socket)
 io.sockets.on("connection", function (socket) {
