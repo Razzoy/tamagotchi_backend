@@ -63,9 +63,9 @@ io.sockets.on("connection", function (socket) {
     if(isHappy == true){
       hp = hp + 1;
     } else if(isAngry == true){
-      hp = hp + 5;
-    } else {
       hp = hp + 3;
+    } else {
+      hp = hp + 2;
     }
 
     
@@ -76,11 +76,11 @@ io.sockets.on("connection", function (socket) {
 
   socket.on("play", (data) => {
     if(isHappy == true){
-      hp = hp - 5;
+      hp = hp - 3;
     } else if(isAngry == true){
-      hp = hp - 15; 
+      hp = hp - 10; 
     } else {
-      hp = hp - 10;
+      hp = hp - 5;
     }
     console.log("Recieved client ping: ", data);
     io.sockets.emit('playing', {message: "playing with client"})
