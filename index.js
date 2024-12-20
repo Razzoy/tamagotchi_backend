@@ -52,7 +52,7 @@ setInterval(() => {
     io.sockets.emit('status', { happyness: isHappy, angryness: isAngry, health: hp });
   }
 
-}, 1000);
+}, 10000);
 
 // A user connects to the server (opens a socket)
 io.sockets.on("connection", function (socket) {
@@ -61,11 +61,11 @@ io.sockets.on("connection", function (socket) {
 
   socket.on("feed", (data) => {
     if(isHappy == true){
-      hp = hp + 4;
+      hp = hp + 1;
     } else if(isAngry == true){
-      hp = hp + 6;
-    } else {
       hp = hp + 5;
+    } else {
+      hp = hp + 3;
     }
 
     
@@ -76,11 +76,11 @@ io.sockets.on("connection", function (socket) {
 
   socket.on("play", (data) => {
     if(isHappy == true){
-      hp = hp - 2;
+      hp = hp - 5;
     } else if(isAngry == true){
-      hp = hp - 13; 
+      hp = hp - 15; 
     } else {
-      hp = hp - 9;
+      hp = hp - 10;
     }
     console.log("Recieved client ping: ", data);
     io.sockets.emit('playing', {message: "playing with client"})
