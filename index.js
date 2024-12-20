@@ -15,7 +15,7 @@ server.listen(PORT, () => {
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: "https://tamagotchibackend-production.up.railway.app",
+    origin: "https://rive-penguin.netlify.app",
   },
 });
 
